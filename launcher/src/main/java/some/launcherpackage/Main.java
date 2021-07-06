@@ -10,7 +10,10 @@ public class Main {
         ServiceLoader<TestInterface> load = ServiceLoader.load(TestInterface.class);
         Optional<TestInterface> first = load.findFirst();
 
-        if (first.isEmpty()) {
+        if (first.isPresent()) {
+            //java -p some-module/target/classes;launcher/target/classes;core/target/classes -m launcher/some.launcherpackage.Main
+            System.out.println("works as expected!");
+        } else  {
             System.out.println("error!");
         }
     }
